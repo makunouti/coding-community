@@ -1,0 +1,15 @@
+<main>
+  <% @posts.each do |post| %>
+  <article>
+    <header>
+      <p><%= post.name %></p>
+    </header>
+
+    <h2><%= link_to post.title, post_path(post.id)  %></h2>
+
+    <footer>
+      <p><%= post.created_at .strftime('%Y/%m/%d %H:%M')%></p>
+    </footer>
+  </article>
+  <% end %>
+</main>

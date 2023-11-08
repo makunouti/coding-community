@@ -1,0 +1,9 @@
+<% if post.errors.any? %>
+    <h2><%= pluralize(post.errors.count, "件のエラー") %>があります</h2>
+    <ul>
+      <% post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
