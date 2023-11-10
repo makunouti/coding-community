@@ -1,0 +1,4 @@
+<%= form_with(model: [post, post_comments], local: true) do |f| %>
+<%= f.text_area :comment %>
+<%= f.submit '投稿' %>
+<% end %>

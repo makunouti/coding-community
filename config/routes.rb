@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 
   resources :users
 
-  resources :posts, except: [:create]
+  resources :posts, except: [:create] do
+    resources :post_comment, only: [:create]
+  end
   post '/posts/new' => "posts#create", as: :post_create
 
   #ゲストユーザーのサインインページ

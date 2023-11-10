@@ -14,16 +14,13 @@ class PostsController < ApplicationController
     end
   end
 
-  def confirm
-    @post = Post.new(post_params)
-  end
-
   def index
     @posts = Post.all
   end
 
   def show
     @post = Post.find(params[:id])
+    @post_comment = PostComment.new
   end
 
   def edit
@@ -32,6 +29,7 @@ class PostsController < ApplicationController
   end
 
   def update
+    #作成したアクセス制限メソッド
     is_matching_login_user
     @post = Post.find(params[:id])
     @post.user_id = current_user.id

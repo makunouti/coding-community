@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :post, dependent: :destroy
+  has_many :comment, dependent: :destroy
   has_one_attached :image
   # guestログインのための記述
   def self.guest

@@ -1,4 +1,4 @@
-<p><%=link_to @post.name, user_path %></p>
+<p><%= link_to @post.name, user_path %></p>
 
 <h4>タイトル</h4>
 <%= @post.title %>
@@ -9,3 +9,9 @@
 <% if @post.id == current_user.id %>
 <%= link_to "編集する", edit_post_path %>
 <% end %>
+
+
+<!--質問者に対する回答者用のフォーム-->
+<h5>この質問に答える</h5>
+
+<%= render partial: 'post_comments/form', locals: {post_comment:@post_comment} %>
