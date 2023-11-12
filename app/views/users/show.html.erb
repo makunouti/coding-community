@@ -1,0 +1,24 @@
+<!-- ユーザーの詳細 -->
+<div>
+
+<% if @user.profile_image.attached? %>
+  <%= image_tag @user.profile_image, size: "200x200" %>
+<% else %>
+  <%= image_tag 'no_image', size: "200x200" %>
+<% end %>
+<h2><%= @user.name %></h2>
+<h3>自己紹介</h3>
+<%= @user.introduction %>
+    <% if @user == current_user %>
+    <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
+  <% end %>
+</div>
+
+<!-- ユーザーの投稿一覧 -->
+  <h4><%= @user.name %>さんの投稿一覧</h4>
+<% @user_questions.each do |user_question| %>
+<div>
+  <p>タイトル：<%= link_to user_question.title, question_path(user_question.id) %></p>
+  <p>投稿日：<%= user_question.created_at.strftime('%Y/%m/%d') %></p>
+</div>
+<% end %>

@@ -1,0 +1,9 @@
+<%= form_with model: @question do |f| %>
+<h1>タイトル</h1>
+<%= f.text_field :title %>
+
+<h2>質問内容</h2>
+<%= f.text_area :body %>
+
+<%= f.submit '投稿' %>
+<% end %>

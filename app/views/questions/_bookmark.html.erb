@@ -1,0 +1,14 @@
+<!--ブックマーク機能-->
+<% if question.favorited_by?(current_user) %>
+  <p>
+    <%= link_to question_bookmark_path(question), method: :delete do %>
+      ♥<%= question.bookmark.count %> いいね
+    <% end %>
+  </p>
+  <% else %>
+  <p>
+    <%= link_to question_bookmark_path(question), method: :post do %>
+      ♡<%= question.bookmark.count %> いいね
+    <% end %>
+  </p>
+<% end %>

@@ -1,0 +1,18 @@
+  <p><!--プロフィール画像-->
+    <%= render 'ProfileImage', question: @question %>
+    <%= link_to @question.user.name, user_path(@question.user_id) %>
+  </p>
+  <h1><%= @question.title %></h1>
+    <h2>質問内容</h2>
+    <p><%= @question.body %></p>
+    <% if @question.user == current_user %>
+      <%= link_to "編集", edit_question_path(@question), mothod: :patch %>
+      <%= link_to "削除", question_path(@question), method: :delete %>
+    <% end %>
+  </div>
+
+<!--ブックマーク機能部分テンプレート-->
+<%= render 'bookmark', question: @question %>
+
+<!--回答者側部分テンプレート-->
+<%= render 'form', question: @question, answer: @answer %>
