@@ -1,0 +1,20 @@
+<% @question_bookmark.each do |bookmark| %>
+  <article>
+    <header>
+      <p>
+        <% if bookmark.user.profile_image.attached? %>
+          <%= image_tag question.user.profile_image, size: "30x30" %>
+        <% else %>
+          <%= image_tag 'no_image', size: "30x30" %>
+        <% end %>
+        <%= link_to bookmark.title, question_path(bookmark.id) %>
+      </p>
+    </header>
+
+    <h2><%= link_to bookmark.user.name, user_path(bookmark.user.id)  %></h2>
+
+    <footer>
+      <p><%= bookmark.created_at .strftime('%Y/%m/%d %H:%M')%></p>
+    </footer>
+  </article>
+<% end %>

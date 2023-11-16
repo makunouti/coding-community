@@ -20,3 +20,33 @@
     body: "質問内容#{n+1}"
     )
   end
+
+tags = [
+  "ruby",
+  "HTML",
+  "CSS",
+  "Ruby on Rails"
+  ]
+
+tags.each do |tag|
+  Tag.create!(
+    name: tag
+  )
+end
+
+20.times do |n|
+  QuestionTagRelation.create!(
+    question_id: Question.all.sample,
+    tag_id: Tag.all.sample
+    )
+end
+
+# 20.times do |n|
+#   q_id = Question.all.sample # 1 or 5 or 100000
+#   4.times do |j|
+#     QuestionTagRelation.create!(
+#       question_id: q_id,
+#       tag_id: Tag.all.sample
+#     )
+#   end
+# end

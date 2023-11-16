@@ -1,3 +1,14 @@
+<nav>
+  <!--キーワード検索機能-->
+  <%= render 'search_form', q: @q %>
+
+  <!--タグリスト-->
+  <% @tag_lists.each do |list| %>
+  <%= link_to list.name, search_tag_path(tag_id: list.id) %>
+  <%= "(#{list.questions.count})" %>
+  <% end %>
+</nav>
+
 <main>
   <% @questions.each do |question| %>
   <article>
