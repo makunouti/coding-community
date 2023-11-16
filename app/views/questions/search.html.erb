@@ -1,0 +1,21 @@
+<h1>検索結果</h1>
+<table>
+  <thead>
+    <tr>
+      <th>タイトル</th>
+      <th>質問内容</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @results.each do |question| %>
+      <tr>
+        <td><%= question.title %></td>
+        <td><%= question.body %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Top', questions_path %>

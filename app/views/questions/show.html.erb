@@ -2,9 +2,14 @@
     <%= render 'ProfileImage', question: @question %>
     <%= link_to @question.user.name, user_path(@question.user_id) %>
   </p>
+
   <h1><%= @question.title %></h1>
     <h2>質問内容</h2>
     <p><%= @question.body %></p>
+    <!--タグリスト-->
+    <% @question_tags.each do |tag| %>
+      <%= link_to tag.name,search_tag_path(tag_id: tag.id) %>
+    <% end %>
     <% if @question.user == current_user %>
       <%= link_to "編集", edit_question_path(@question), mothod: :patch %>
       <%= link_to "削除", question_path(@question), method: :delete %>
