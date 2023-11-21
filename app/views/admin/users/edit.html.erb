@@ -1,0 +1,57 @@
+<div class="container py-5">
+  <p class="<%= flash[:color] %>"><%= flash[:notice] %></p>
+  <div class="row mt-2 mb-3 offset-1 text-center">
+    <h3 class="px-4 title-background"><%= (@user.name) %>さんの会員情報編集</h3>
+  </div>
+
+  <%= form_with model: @user, url: admin_user_path do |f| %>
+  <div class="row">
+    <div class="col-10 mx-auto">
+      <table class="table">
+
+        <tr>
+          <td>会員ID</td>
+          <td><%= @user.id %></td>
+          <td></td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td><label for="user_name">名前</label></td>
+          <td><%= f.text_field :user_name, id: "user_name", value: @user.name, class: "form-control last_name" %></td>
+          <td><br /></td>
+        </tr>
+
+        <tr>
+          <td><label for="user_email">メールアドレス</label></td>
+          <td><%= f.text_field :email, id: "user_email", value: @user.email, class: "form-control email" %></td>
+          <td></td>
+          <td></td>
+        </tr>
+
+        <tr class="form-group">
+          <td class="control-label">会員ステータス</td>
+          <td>
+            <div class="radio-inline">
+              <%= f.radio_button :is_active, false %>
+              <%= f.label :is_active, "入会", {value: :true, style: "display: inline-block"} %>
+              <%= f.radio_button :is_active, true %>
+              <%= f.label :is_active, "退会", {value: :true, style: "display: inline-block"} %>
+            </div>
+          </td>
+          <td></td>
+          <td></td>
+        </tr>
+
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-3 offset-2">
+      <%= f.submit "変更を保存", class: "btn btn-success" %>
+    </div>
+  </div>
+
+  <% end %>
+</div>

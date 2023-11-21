@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
   before_action :is_matching_login_user, only: [:edit, :update]
   before_action :check_guest, only: %i[update destroy]
   before_action :set_user, only: [:bookmarks]

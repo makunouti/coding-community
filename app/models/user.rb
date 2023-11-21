@@ -18,6 +18,9 @@ class User < ApplicationRecord
     end
   end
 
+  def active_for_authentication?
+    self.is_active == false
+  end
   has_one_attached :profile_image
   # 画像がユーザーによって登録されていない場合代替画像を表示する
   # def get_profile_image(width, height)
