@@ -2,11 +2,7 @@
   <article>
     <header>
       <p>
-        <% if bookmark.user.profile_image.attached? %>
-          <%= image_tag question.user.profile_image, size: "30x30" %>
-        <% else %>
-          <%= image_tag 'no_image', size: "30x30" %>
-        <% end %>
+        <%= image_tag question.user.get_profile_image(30, 30), size: "30x30" %>
         <%= link_to bookmark.title, question_path(bookmark.id) %>
       </p>
     </header>
