@@ -1,5 +1,6 @@
-    <% if question.user.profile_image.attached? %>
-      <%= image_tag question.user.profile_image, size: "30x30" %>
-    <% else %>
-      <%= image_tag asset_path('no_image.jpg'), size: "30x30" %>
-    <% end %>
+    <%# if question.user.profile_image.attached? %>
+      <%#= image_tag question.user.profile_image, size: "30x30" %>
+    <%# else %>
+      <%#= image_tag asset_path('no_image.jpg'), size: "30x30" %>
+    <%# end %>
+    <%= image_tag question.user.get_profile_image(30, 30), size: "30x30" %>
