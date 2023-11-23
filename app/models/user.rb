@@ -25,7 +25,7 @@ class User < ApplicationRecord
   # 画像がユーザーによって登録されていない場合代替画像を表示する
   def get_profile_image(width, height)
     unless profile_image.attached?
-      file_path = Rails.root.join("public") + ActionController::Base.helpers.asset_path("no_image.jpg")
+      file_path = Rails.root.join("public/no_image.jpg")
       # file_path = Rails.root.join('app/assets/images/no_image.jpg')
       profile_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
     end
