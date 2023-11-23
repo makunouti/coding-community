@@ -8,7 +8,9 @@ Rails.application.routes.draw do
     resources :users
   end
 
-  devise_for :users
+  devise_for :users, controllers: {
+    sessions: 'users/sessions'
+  }
 
   #ゲストログインのための記述
   devise_scope :user do
