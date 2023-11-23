@@ -2,7 +2,7 @@
 <div>
 <%= link_to 'いいね', bookmarks_user_path(@user.id) %>
 
-  <%= image_tag question.user.get_profile_image(30, 30), size: "30x30" %>
+  <%= image_tag @user.get_profile_image(30, 30), size: "30x30" %>
 
 <h2><%= @user.name %></h2>
 <h3>自己紹介</h3>
