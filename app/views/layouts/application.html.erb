@@ -6,7 +6,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/decd1c0ac5.js" crossorigin="anonymous"></script>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -28,6 +29,9 @@
       <% elsif admin_signed_in? %>
         <li>
           <%= link_to '投稿一覧', questions_path %>
+        </li>
+        <li>
+          <%= link_to 'ユーザー一覧', admin_users_path %>
         </li>
         <li>
           <%= link_to '投稿フォーム', new_question_path %>
