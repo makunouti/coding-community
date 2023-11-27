@@ -2,12 +2,12 @@
   <article>
     <header>
       <p>
-        <%= image_tag question.user.get_profile_image(30, 30), size: "30x30" %>
-        <%= link_to bookmark.title, question_path(bookmark.id) %>
+        <%= image_tag bookmark.user.get_profile_image(30, 30), size: "30x30" %>
+        <%= link_to bookmark.user.name, user_path(bookmark.user.id)  %>
       </p>
     </header>
 
-    <h2><%= link_to bookmark.user.name, user_path(bookmark.user.id)  %></h2>
+    <h2><%= link_to bookmark.title, question_path(bookmark.id) %></h2>
 
     <footer>
       <p><%= bookmark.created_at .strftime('%Y/%m/%d %H:%M')%></p>

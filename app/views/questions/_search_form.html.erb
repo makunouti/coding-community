@@ -1,8 +1,8 @@
 <%= search_form_for @q, url: search_questions_path do |f| %>
   <%= f.label :title_cont, 'タイトル名検索' %>
-    <%= f.search_field :title_cont %>
+    <%= f.search_field :title_i_cont %>
   <%= f.label :body_cont, '本文検索' %>
-    <%= f.search_field :body_cont %>
+    <%= f.search_field :body_i_cont %>
   <br>
   <%= f.submit '検索' %>
 <% end %>

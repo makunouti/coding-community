@@ -12,51 +12,25 @@
   </head>
 
   <body>
-    <header>
-      <% if user_signed_in? %>
-      <ul class="list-unstyled">
-        <li>
-        <%= link_to 'マイページ', user_path(current_user.id) %>
-        </li>
-        <li>
-          <%= link_to '投稿一覧', questions_path %>
-        </li>
-        <li>
-          <%= link_to '投稿フォーム', new_question_path %>
-        </li>
-        <li>
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-        </li>
-      <% elsif admin_signed_in? %>
-        <li>
-          <%= link_to '投稿一覧', questions_path %>
-        </li>
-        <li>
-          <%= link_to 'ユーザー一覧', admin_users_path %>
-        </li>
-        <li>
-          <%= link_to '投稿フォーム', new_question_path %>
-        </li>
-        <li>
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-        </li>
-      <% else %>
-        <li>
-          <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post %>
-        </li>
-        <li>
-          <%= link_to "新規登録", new_user_registration_path %>
-        </li>
-        <li>
-          <%= link_to "ログイン", new_user_session_path %>
-        </li>
-        <li>
-          <%= link_to "管理者の方はこちらから", admin_session_path %>
-        </li>
-      </ul>
+    <header class="mw-100 mh-100 p-3 p-2 bg-opacity-25 rounded" style="background-color: #5ce1e6;" >
+    <% if user_signed_in? %>
+      <%= link_to 'マイページ', user_path(current_user.id) %>
+      <%= link_to '投稿一覧', questions_path %>
+      <%= link_to '投稿フォーム', new_question_path %>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+    <% elsif admin_signed_in? %>
+      <%= link_to '投稿一覧', questions_path %>
+      <%= link_to 'ユーザー一覧', admin_users_path %>
+      <%= link_to '投稿フォーム', new_question_path %>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+    <% else %>
+      <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post %>
+      <%= link_to "新規登録", new_user_registration_path %>
+      <%= link_to "ログイン", new_user_session_path %>
+      <%= link_to "管理者の方はこちらから", admin_session_path %>
       <% end %>
-
     </header>
+
 
     <%= yield %>
 
