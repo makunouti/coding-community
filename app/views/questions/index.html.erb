@@ -11,10 +11,10 @@
 
 <main>
   <% @questions.each do |question| %>
-  <article>
+  <article class="shadow-lg p-3 mb-5 bg-body-tertiary rounded">
     <header>
       <p>
-        <%= image_tag question.user.get_profile_image(30, 30), size: "30x30" %>
+        <%= image_tag question.user.get_profile_image(30, 30), size: "50x50", class:"rounded-circle" %>
           <% if user_signed_in? %>
             <%= link_to question.user.name, user_path(question.user_id) %>
           <% elsif admin_signed_in? %>
